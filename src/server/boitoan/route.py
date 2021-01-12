@@ -94,16 +94,14 @@ def __tinh_thien_can(year):
     :return:
     """
     thien_can = year % 10
-    if thien_can == 5 or thien_can == 4:
-        can = 1
-    if thien_can == 6 or thien_can == 7:
-        can = 2
-    if thien_can == 8 or thien_can == 9:
-        can = 3
-    if thien_can == 0 or thien_can == 1:
-        can = 4
-    if thien_can == 2 or thien_can == 3:
-        can = 5
+    thien_can_table = {
+        5: 1, 4: 1,
+        6: 2, 7: 2,
+        8: 3, 9: 3,
+        0: 4, 1: 4,
+        2: 5, 3: 5
+    }
+    can = thien_can_table[thien_can]
     return can
 
 
@@ -114,18 +112,16 @@ def __tinh_chi(year):
     :return:
     """
     dia_chi = year % 12
-    if dia_chi == 4 or dia_chi == 5 or dia_chi == 10 or dia_chi == 11:
-        chi = 0
-    if dia_chi == 6 or dia_chi == 7 or dia_chi == 0 or dia_chi == 1:
-        chi = 1
-    if dia_chi == 8 or dia_chi == 9 or dia_chi == 2 or dia_chi == 3:
-        chi = 2
-
+    dia_chi_table = {
+        4: 0, 5: 0, 10: 0, 11: 0,
+        6: 1, 7: 1,0: 1, 1: 1,
+        8: 2, 9: 2, 2: 2, 3: 2
+    }
+    chi = dia_chi_table[dia_chi]
     return chi
 
 
 def _hop_tuoi(nam, nu):
-
     if nam == nu:
         tuoi = "Khong hop cung khong khac"
     else:
